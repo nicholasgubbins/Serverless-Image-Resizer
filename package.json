@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Serverless Image Resizer",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "./node_modules/.bin/jest --watch",
+    "test:coverage": "./node_modules/.bin/jest --coverage"
+  },
   "author": "Nick Gubbins <nick@easle.co>",
   "license": "ISC",
   "dependencies": {
