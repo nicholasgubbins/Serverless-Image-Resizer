@@ -118,3 +118,6 @@ module.exports.handler = (event, context, callback) => {
     callback(null, e)
   })
 };
+
+module.exports.stripQueryParams = stripQueryParams;
+module.exports.generateKey = generateKey;

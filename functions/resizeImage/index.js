@@ -123,3 +123,5 @@ module.exports.handler = (event, context, callback) => {
   });
 }
 
+module.exports.formatEvent = formatEvent;
+
