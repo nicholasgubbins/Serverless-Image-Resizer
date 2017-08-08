@@ -33,12 +33,15 @@ functions:
     handler: functions/getImage/index.handler
     events:
       - http: GET {proxy+}
+      - cloudwatchLog: '/aws/lambda/getImage'
     package:
       include:
         - functions/getImage/**
   resizeImage:
     name: ${self:provider.environment.RESIZE_LAMBDA}
     handler: functions/resizeImage/index.handler
+    events:
+      - cloudwatchLog: '/aws/lambda/resizeImage'
     package:
       include:
         - functions/resizeImage/**
