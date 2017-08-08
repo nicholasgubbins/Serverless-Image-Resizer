@@ -2,7 +2,7 @@ service: Image-Resizer
 
 provider:
   name: aws
-  runtime: nodejs4.3
+  runtime: nodejs6.10
 
   memorySize: 1024 # optional, default is 1024
   timeout: 100 # optional, default is 6
@@ -16,11 +16,11 @@ provider:
     BUCKET: "sample-bucket"
     SLS_DEBUG: "*"
     RESIZE_LAMBDA: ${self:provider.stage}-resizeImage
-  
 
-package: 
+
+package:
   individually: true
-  # exclude: 
+  # exclude:
   #   - bin/**
   #   - functions/**
 
@@ -44,7 +44,7 @@ functions:
       include:
         - bin/APIInterface/**
         - functions/resizeImage/**
-      
+
 
 
 # you can add CloudFormation resource templates here
@@ -71,13 +71,10 @@ resources:
                 - Effect: Allow
                   Action:
                     - "s3:*"
-                  Resource: 
+                  Resource:
                     -  "Fn::Join": ["", ["arn:aws:s3:::", "${self:provider.environment.BUCKET}/*"]]
                 - Effect: Allow
                   Action:
                     - "lambda:InvokeFunction"
                   Resource:
                     -  "Fn::Join": ["", ["arn:aws:lambda:", {"Ref": "AWS::Region"}, ":", {"Ref": "AWS::AccountId"}, ":function:${self:provider.environment.RESIZE_LAMBDA}"]]
-          
-
-#                 
