@@ -27,8 +27,6 @@ describe('getImage', () => {
 
   describe('stripQueryParams', () => {
     test('should filter out supported query params', () => {
-      'w', 'h', 'f', 'q', 'm', 'b';
-
       const query = {
         a: 'filter this',
         b: 'keep this',
