@@ -45,3 +45,4 @@ Note that `npm run test:coverage` will create a `coverage` folder that is gitign
 * ~Bump serverless node version to 6.10.2~
 * ~add .nvmrc set to 6.10.2~
 * Integrate with CI
+* Setup cloudwatch logs in serverless.yml
