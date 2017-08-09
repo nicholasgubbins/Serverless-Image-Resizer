@@ -10,6 +10,10 @@
   },
   "author": "Nick Gubbins <nick@easle.co> && Marcus Molchany <marcusmolchany@gmail.com>",
   "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/nicholasgubbins/Serverless-Image-Resizer"
+  },
   "dependencies": {
     "aws-sdk": "^2.22.0",
     "bluebird": "^3.3.4",
