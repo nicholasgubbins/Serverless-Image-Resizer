@@ -8,7 +8,7 @@
     "test:watch": "./node_modules/.bin/jest --watch",
     "test:coverage": "./node_modules/.bin/jest --coverage"
   },
-  "author": "Nick Gubbins <nick@easle.co>",
+  "author": "Nick Gubbins <nick@easle.co> && Marcus Molchany <marcusmolchany@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.22.0",
