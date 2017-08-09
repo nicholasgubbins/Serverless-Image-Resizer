@@ -1,6 +1,6 @@
 {
   "name": "serverless-image-resizer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Serverless Image Resizer",
   "main": "index.js",
   "scripts": {
