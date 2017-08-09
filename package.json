@@ -9,7 +9,7 @@
     "test:coverage": "./node_modules/.bin/jest --coverage"
   },
   "author": "Nick Gubbins <nick@easle.co> && Marcus Molchany <marcusmolchany@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.22.0",
     "bluebird": "^3.3.4",
