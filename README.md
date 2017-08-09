@@ -1,12 +1,12 @@
-Image-Resizer [![Build Status][travis-image]][travis-url]
-=============
+Serverless-Image-Resizer [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
+========================
 
-Image-Resizer is an image processing service that runs on AWS Lambda and S3.
+Serverless-Image-Resizer is an image processing service that runs on AWS Lambda and S3.
 
 # Summary
 
-Put simply, Image-Resizer works by requesting an image file from S3 and applying image processing
-functions to that image.
+Put simply, Serverless-Image-Resizer works by requesting an image file from S3 and applying image
+processing functions to that image.
 
 # Setup
 
@@ -108,7 +108,7 @@ https://LAMBDA-ID.execute-api.eu-west-1.amazonaws.com/dev/path/to/image.png
 
 # Usage
 
-Image-Resizer supports the following query params:
+Serverless-Image-Resizer supports the following query params:
 
 | Parameter | Description | Format | Example |
 | --- | --- | --- | --- |
@@ -163,3 +163,5 @@ Note that `npm run test:coverage` will create a `coverage` folder that is gitign
 
 [travis-image]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer.svg?branch=master
 [travis-url]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer
+[npm-image]: https://badge.fury.io/js/serverless-image-resizer.svg
+[npm-url]: https://npmjs.org/package/serverless-image-resizer
