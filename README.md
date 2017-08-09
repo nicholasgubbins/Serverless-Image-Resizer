@@ -65,6 +65,9 @@ const { getImage } = require('serverless-image-resizer');
 module.exports.handler = getImage.handler;
 ```
 
+You will also need to copy [`serverless.yml`](https://raw.githubusercontent.com/nicholasgubbins/Serverless-Image-Resizer/master/serverless.yml)
+to the top level of your project directory.
+
 ## Rename the S3 bucket
 
 In `serverless.yml` change `provider.environment.BUCKET` to be the name of your S3 bucket.
