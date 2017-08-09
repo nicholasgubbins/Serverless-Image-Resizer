@@ -1,4 +1,4 @@
-Image-Resizer
+Image-Resizer [![Build Status][travis-image]][travis-url]
 =============
 
 Image-Resizer is an image processing service that runs on AWS Lambda and S3.
@@ -160,3 +160,6 @@ Note that `npm run test:coverage` will create a `coverage` folder that is gitign
 * ~add .nvmrc set to 6.10.2~
 * Integrate with CI
 * Setup cloudwatch logs in serverless.yml
+
+[travis-image]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer.svg?branch=master
+[travis-url]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer

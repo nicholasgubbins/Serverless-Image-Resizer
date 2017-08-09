@@ -1,0 +1,2 @@
+language: node_js
+# node_js: travis will use the version specified in .nvmrc
