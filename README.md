@@ -150,20 +150,6 @@ $ npm run test:coverage  # to test code coverage
 
 Note that `npm run test:coverage` will create a `coverage` folder that is gitignored.
 
-**TODO:**
-* Documention
-  * Summary
-  * Setup
-  * gh-pages
-* Add LICENSE
-* Add PULL_REQUEST_TEMPLATE
-* Add CONTRIBUTING
-* Mock lambda, s3 and gm for testing
-* ~Bump serverless node version to 6.10.2~
-* ~add .nvmrc set to 6.10.2~
-* Integrate with CI
-* Setup cloudwatch logs in serverless.yml
-
 [travis-image]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer.svg?branch=master
 [travis-url]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer
 [npm-image]: https://badge.fury.io/js/serverless-image-resizer.svg
