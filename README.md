@@ -8,6 +8,16 @@ Serverless-Image-Resizer is an image processing service that runs on AWS Lambda 
 Put simply, Serverless-Image-Resizer works by requesting an image file from S3 and applying image
 processing functions to that image.
 
+## Example
+
+The original image on the left has been vertically resized to 300 px and has had a blur of radius 0
+and sigma 3 applied to create the image on the right. The URL to perform this effect would be
+`https://API-URL.com/path/to/image.jpg?h=300&b=0x3`.
+
+| Original | Edited |
+| --- | --- |
+| <img src="https://user-images.githubusercontent.com/2160046/29154251-faddecb4-7d47-11e7-8f75-e76085215146.jpg"> | <img src="https://user-images.githubusercontent.com/2160046/29154255-fe61f7cc-7d47-11e7-96f4-da46241e143b.jpg">|
+
 # Setup
 
 ## AWS and Serverless
