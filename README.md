@@ -8,6 +8,16 @@ Serverless-Image-Resizer is an image processing service that runs on AWS Lambda 
 Put simply, Serverless-Image-Resizer works by requesting an image file from S3 and applying image
 processing functions to that image.
 
+## Example
+
+The original image on the left has been vertically resized to 300 px and has had a blur of radius 0
+and sigma 3 applied to create the image on the right. The URL to perform this effect would be
+`https://API-URL.com/path/to/image.jpg?h=300&b=0x3`.
+
+| Original | Edited |
+| --- | --- |
+| <img src="https://user-images.githubusercontent.com/2160046/29154251-faddecb4-7d47-11e7-8f75-e76085215146.jpg"> | <img src="https://user-images.githubusercontent.com/2160046/29154255-fe61f7cc-7d47-11e7-96f4-da46241e143b.jpg">|
+
 # Setup
 
 ## AWS and Serverless
@@ -149,20 +159,6 @@ $ npm run test:coverage  # to test code coverage
 ```
 
 Note that `npm run test:coverage` will create a `coverage` folder that is gitignored.
-
-**TODO:**
-* Documention
-  * Summary
-  * Setup
-  * gh-pages
-* Add LICENSE
-* Add PULL_REQUEST_TEMPLATE
-* Add CONTRIBUTING
-* Mock lambda, s3 and gm for testing
-* ~Bump serverless node version to 6.10.2~
-* ~add .nvmrc set to 6.10.2~
-* Integrate with CI
-* Setup cloudwatch logs in serverless.yml
 
 [travis-image]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer.svg?branch=master
 [travis-url]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer
