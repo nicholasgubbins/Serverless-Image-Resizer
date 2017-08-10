@@ -59,7 +59,7 @@ const { resizeImage } = require('serverless-image-resizer');
 module.exports.handler = resizeImage.handler;
 
 
-// in functions/resizeImage/index.js
+// in functions/getImage/index.js
 const { getImage } = require('serverless-image-resizer');
 
 module.exports.handler = getImage.handler;
