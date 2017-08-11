@@ -9,12 +9,12 @@ describe('getImage', () => {
     // todo: JSON stringify responses
     // todo: 'crop' twice in GM_KEYS
 
-    test('should reject event without required params', done => {
+    test('should reject event without required params', (done) => {
       const expected = {
         statusCode: 400,
-        body: `{"message": "asset required"}`,
+        body: '{"message": "asset required"}',
       };
-      formatEvent().catch(e => {
+      formatEvent().catch((e) => {
         const { statusCode, body } = expected;
         expect(e.statusCode).toEqual(statusCode);
         expect(e.body).toEqual(body);
@@ -22,15 +22,15 @@ describe('getImage', () => {
       });
     });
 
-    test('should reject event with incorrect type', done => {
+    test('should reject event with incorrect type', (done) => {
       const event = {
         asset: 1234,
       };
       const expected = {
         statusCode: 400,
-        body: `{"message": "asset should be of type string"}`,
+        body: '{"message": "asset should be of type string"}',
       };
-      formatEvent(event).catch(e => {
+      formatEvent(event).catch((e) => {
         const { statusCode, body } = expected;
         expect(e.statusCode).toEqual(statusCode);
         expect(e.body).toEqual(body);
@@ -38,7 +38,7 @@ describe('getImage', () => {
       });
     });
 
-    test('should resolve a formatted event', done => {
+    test('should resolve a formatted event', (done) => {
       const event = {
         asset: 'asset',
         destination: 'destination',
@@ -52,13 +52,13 @@ describe('getImage', () => {
         storage_class: 'storage_class',
       };
       const expected = Object.assign({}, event);
-      formatEvent(event).then(actual => {
+      formatEvent(event).then((actual) => {
         expect(actual).toEqual(expected);
         done();
       });
     });
 
-    test('should delete invalid resize_options', done => {
+    test('should delete invalid resize_options', (done) => {
       const event = {
         asset: 'asset',
         destination: 'destination',
@@ -92,7 +92,7 @@ describe('getImage', () => {
       delete expected.resize_options.removeMe;
       delete expected.resize_options.removeMeToo;
 
-      formatEvent(event).then(actual => {
+      formatEvent(event).then((actual) => {
         expect(actual).toEqual(expected);
         done();
       });

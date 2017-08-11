@@ -146,6 +146,15 @@ AWS Lambda
 so that should be used during development. If you have [`nvm`](https://github.com/creationix/nvm)
 installed you can run `$ nvm use` to use the version in the `.nvmrc` file.
 
+## Linting
+
+This project uses the [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+linting configuration. To run eslint execute the lint command:
+
+```sh
+$ npm run lint
+```
+
 ## Testing
 
 Tests are written and executed using [Jest](https://facebook.github.io/jest/). To write a test,
