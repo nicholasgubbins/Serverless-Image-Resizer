@@ -50,7 +50,8 @@ There are two ways to get the project code, choose from one of the options:
 
 ```sh
 $ git clone https://github.com/nicholasgubbins/Serverless-Image-Resizer.git && cd Serverless-Image-Resizer
-$ npm i
+$ git checkout $(git describe --tags `git rev-list --tags --max-count=1`) # checkout latest release
+$ npm i # or $ yarn
 ```
 
 ### npm
