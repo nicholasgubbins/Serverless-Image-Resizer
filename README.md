@@ -6,7 +6,11 @@ Serverless-Image-Resizer is an image processing service that runs on AWS Lambda 
 # Summary
 
 Put simply, Serverless-Image-Resizer works by requesting an image file from S3 and applying image
-processing functions to that image.
+processing functions to that image. Image processing functions are sent as query parameters in the
+request URL. Serverless-Image-Resizer first checks to see if the requested image (including effects)
+is stored in S3. If it is, then the cached version is returned. If it is not, then the
+processing functions are applied to the original image, and the resulting image is cached in S3 and
+sent back to the requester.
 
 ## Example
 
