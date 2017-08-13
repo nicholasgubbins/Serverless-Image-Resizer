@@ -1,6 +1,6 @@
 Serverless-Image-Resizer
 ========================
-[![Build Status][travis-image]][travis-url] [![dependencies Status][david-dep-image]][david-dep-url] [![devDependencies Status][david-devDep-image]][david-devDep-url] [![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url] [![dependencies Status][david-dep-image]][david-dep-url] [![devDependencies Status][david-devDep-image]][david-devDep-url] [![NPM version][npm-image]][npm-url] [![Twitter URL][twitter-image]][twitter-url]
 
 Serverless-Image-Resizer is an image processing service that runs on AWS Lambda and S3.
 
@@ -179,7 +179,9 @@ Note that `npm run test:coverage` will create a `coverage` folder that is gitign
 [david-dep-url]: https://david-dm.org/nicholasgubbins/serverless-image-resizer
 [david-devDep-image]: https://david-dm.org/nicholasgubbins/serverless-image-resizer/dev-status.svg
 [david-devDep-url]: https://david-dm.org/nicholasgubbins/serverless-image-resizer?type=dev
-[travis-image]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer.svg?branch=master
-[travis-url]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer
 [npm-image]: https://badge.fury.io/js/serverless-image-resizer.svg
 [npm-url]: https://npmjs.org/package/serverless-image-resizer
+[travis-image]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer.svg?branch=master
+[travis-url]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer
+[twitter-image]: https://img.shields.io/twitter/url/https/github.com/nicholasgubbins/serverless-image-resizer.svg?style=social
+[twitter-url]: https://twitter.com/intent/tweet?text=Make%20your%20own%20serverless%20image%20processing%20API%20on%20AWS%20with%20this%20node%20package!%20https://github.com/nicholasgubbins/serverless-image-resizer
