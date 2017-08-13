@@ -1,12 +1,17 @@
-Serverless-Image-Resizer [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
+Serverless-Image-Resizer
 ========================
+[![Build Status][travis-image]][travis-url] [![dependencies Status][david-dep-image]][david-dep-url] [![devDependencies Status][david-devDep-image]][david-devDep-url] [![NPM version][npm-image]][npm-url] [![Twitter URL][twitter-image]][twitter-url]
 
 Serverless-Image-Resizer is an image processing service that runs on AWS Lambda and S3.
 
 # Summary
 
 Put simply, Serverless-Image-Resizer works by requesting an image file from S3 and applying image
-processing functions to that image.
+processing functions to that image. Image processing functions are sent as query parameters in the
+request URL. Serverless-Image-Resizer first checks to see if the requested image (including effects)
+is stored in S3. If it is, then the cached version is returned. If it is not, then the
+processing functions are applied to the original image, and the resulting image is cached in S3 and
+sent back to the requester.
 
 ## Example
 
@@ -46,7 +51,8 @@ There are two ways to get the project code, choose from one of the options:
 
 ```sh
 $ git clone https://github.com/nicholasgubbins/Serverless-Image-Resizer.git && cd Serverless-Image-Resizer
-$ npm i
+$ git checkout $(git describe --tags `git rev-list --tags --max-count=1`) # checkout latest release
+$ npm i # or $ yarn
 ```
 
 ### npm
@@ -169,7 +175,13 @@ $ npm run test:coverage  # to test code coverage
 
 Note that `npm run test:coverage` will create a `coverage` folder that is gitignored.
 
-[travis-image]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer.svg?branch=master
-[travis-url]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer
+[david-dep-image]: https://david-dm.org/nicholasgubbins/serverless-image-resizer/status.svg
+[david-dep-url]: https://david-dm.org/nicholasgubbins/serverless-image-resizer
+[david-devDep-image]: https://david-dm.org/nicholasgubbins/serverless-image-resizer/dev-status.svg
+[david-devDep-url]: https://david-dm.org/nicholasgubbins/serverless-image-resizer?type=dev
 [npm-image]: https://badge.fury.io/js/serverless-image-resizer.svg
 [npm-url]: https://npmjs.org/package/serverless-image-resizer
+[travis-image]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer.svg?branch=master
+[travis-url]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer
+[twitter-image]: https://img.shields.io/twitter/url/https/github.com/nicholasgubbins/serverless-image-resizer.svg?style=social
+[twitter-url]: https://twitter.com/intent/tweet?text=Make%20your%20own%20serverless%20image%20processing%20API%20on%20AWS%20with%20this%20node%20package!%20https://github.com/nicholasgubbins/serverless-image-resizer
