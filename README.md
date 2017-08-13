@@ -1,4 +1,4 @@
-Serverless-Image-Resizer [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
+Serverless-Image-Resizer [![Build Status][travis-image]][travis-url] [![dependencies Status][david-dep-image]][david-dep-url] [![devDependencies Status][david-devDep-image]][david-devDep-url] [![NPM version][npm-image]][npm-url]
 ========================
 
 Serverless-Image-Resizer is an image processing service that runs on AWS Lambda and S3.
@@ -174,6 +174,10 @@ $ npm run test:coverage  # to test code coverage
 
 Note that `npm run test:coverage` will create a `coverage` folder that is gitignored.
 
+[david-dep-image]: https://david-dm.org/nicholasgubbins/serverless-image-resizer/status.svg
+[david-dep-url]: https://david-dm.org/nicholasgubbins/serverless-image-resizer
+[david-devDep-image]: https://david-dm.org/nicholasgubbins/serverless-image-resizer/dev-status.svg
+[david-devDep-url]: https://david-dm.org/nicholasgubbins/serverless-image-resizer?type=dev
 [travis-image]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer.svg?branch=master
 [travis-url]: https://travis-ci.org/nicholasgubbins/Serverless-Image-Resizer
 [npm-image]: https://badge.fury.io/js/serverless-image-resizer.svg
