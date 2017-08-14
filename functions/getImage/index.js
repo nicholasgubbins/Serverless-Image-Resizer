@@ -1,5 +1,3 @@
-
-
 const AWS = require('aws-sdk');
 
 const s3 = new AWS.S3();
@@ -23,16 +21,16 @@ function checkS3(key) {
 function getS3(key) {
   return new Promise((resolve, reject) => {
     s3.getObject({ Bucket: process.env.BUCKET, Key: key }, (err, data) => {
-      if (err && err.code == 'NotFound') return reject(Errors.NOT_FOUND);
+      if (err && err.code === 'NotFound') return reject(Errors.NOT_FOUND);
       else if (err) {
         const e = Object.assign({}, Errors.SOMETHING_WRONG, { err });
         return reject(e);
       }
-      const content_type = data.ContentType;
+      const contentType = data.ContentType;
       const image = new Buffer(data.Body).toString('base64');
       return resolve({
         statusCode: 200,
-        headers: { 'Content-Type': content_type },
+        headers: { 'Content-Type': contentType },
         body: image,
         isBase64Encoded: true,
       });
@@ -40,16 +38,19 @@ function getS3(key) {
   });
 }
 
-
-function stripQueryParams(query) {
-  query = query || {};
-  const return_query = {};
-  Object.keys(query).filter(k => ['w', 'h', 'f', 'q', 'm', 'b'].indexOf(k) > -1).sort().forEach(k => return_query[k] = query[k]);
-  return return_query;
+function stripQueryParams(query = {}) {
+  const returnQuery = {};
+  Object.keys(query)
+    .filter(k => ['w', 'h', 'f', 'q', 'm', 'b'].indexOf(k) > -1)
+    .sort()
+    .forEach((k) => {
+      returnQuery[k] = query[k];
+    });
+  return returnQuery;
 }
 
-function generateKey(image_path, query) {
-  let key = image_path;
+function generateKey(imagePath, query) {
+  let key = imagePath;
   const keys = Object.keys(query);
   if (query && keys.length > 0) {
     key += '?';
@@ -58,7 +59,7 @@ function generateKey(image_path, query) {
       if (i !== keys.length - 1) key += '&';
     });
   }
-  if (key[0] == '/') key = key.substring(1);
+  if (key[0] === '/') key = key.substring(1);
   return key;
 }
 
@@ -68,31 +69,36 @@ function resize(data) {
   return new Promise((resolve, reject) => lambda.invoke({
     Payload: JSON.stringify(data),
     FunctionName: process.env.RESIZE_LAMBDA,
-  }, (err, result) => ((err) ? reject(err) :
-    (result.FunctionError) ? reject({ statusCode: 502, body: result.Payload })
-      : resolve(result))));
+  }, (err, result) => {
+    if (err) {
+      return reject(err);
+    }
+    if (result.FunctionError) {
+      return reject({ statusCode: 502, body: result.Payload });
+    }
+    return resolve(result);
+  }));
 }
 
-
-function processImage(image_path, query, destination_path) {
-  image_path = (image_path[0] == '/') ? image_path.substring(1) : image_path;
-  return checkS3(image_path)
+function processImage(imagePathArg, query, destinationPath) {
+  const imagePath = (imagePathArg[0] === '/') ? imagePathArg.substring(1) : imagePathArg;
+  return checkS3(imagePath)
     .then((metadata) => {
       if (!metadata) throw Errors.NOT_FOUND;
-      console.log('s3 base', image_path, 'exists but we need to process it into', destination_path);
-      const lambda_data = {
+      console.log('s3 base', imagePath, 'exists but we need to process it into', destinationPath);
+      const lambdaData = {
         mime_type: metadata.ContentType,
         resize_options: parseQueryParameters(query),
-        asset: image_path,
-        destination: destination_path,
+        asset: imagePath,
+        destination: destinationPath,
         bucket: process.env.BUCKET,
         storage_class: 'REDUCED_REDUNDANCY',
       };
-      console.log(JSON.stringify(lambda_data));
+      console.log(JSON.stringify(lambdaData));
 
-      return resize(lambda_data);
+      return resize(lambdaData);
     })
-    .then(() => getS3(destination_path));
+    .then(() => getS3(destinationPath));
 }
 
 module.exports.handler = (event, context, callback) => {
@@ -102,7 +108,12 @@ module.exports.handler = (event, context, callback) => {
   return checkS3(key)
     .then((metadata) => {
       if (metadata) return getS3(key).then(data => callback(null, data));
-      else if (Object.keys(query).length > 0) return processImage(event.path, event.queryStringParameters, key).then(data => callback(null, data));
+      else if (Object.keys(query).length > 0) {
+        return (
+          processImage(event.path, event.queryStringParameters, key)
+            .then(data => callback(null, data))
+        );
+      }
       return callback(null, Errors.NOT_FOUND);
     })
     .catch((e) => {
