@@ -35,15 +35,21 @@ functions:
       - http: GET {proxy+}
     package:
       include:
-        - bin/APIInterface/**
         - functions/getImage/**
   resizeImage:
     name: ${self:provider.environment.RESIZE_LAMBDA}
     handler: functions/resizeImage/index.handler
     package:
       include:
-        - bin/APIInterface/**
         - functions/resizeImage/**
+  uploadImage:
+    name: ${self:service}-${self:provider.stage}-uploadImage
+    handler: functions/uploadImage/index.handler
+    events:
+      - http: POST /upload
+    package:
+      include:
+        - functions/uploadImage/**
 
 
 
