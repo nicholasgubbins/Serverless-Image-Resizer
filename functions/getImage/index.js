@@ -64,7 +64,7 @@ function generateKey(image_path, query) {
 
 
 function resize(data) {
-  const lambda = new AWS.Lambda({ region: 'eu-west-1' });
+  const lambda = new AWS.Lambda({ region: process.env.region });
   return new Promise((resolve, reject) => lambda.invoke({
     Payload: JSON.stringify(data),
     FunctionName: process.env.RESIZE_LAMBDA,
