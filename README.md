@@ -1,6 +1,6 @@
 Serverless-Image-Resizer
 ========================
-[![Build Status][travis-image]][travis-url] [![dependencies Status][david-dep-image]][david-dep-url] [![devDependencies Status][david-devDep-image]][david-devDep-url] [![NPM version][npm-image]][npm-url] [![Known Vulnerabilities][snyk-image]][snyk-url] [![Twitter URL][twitter-image]][twitter-url]
+[![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url] [![dependencies Status][david-dep-image]][david-dep-url] [![devDependencies Status][david-devDep-image]][david-devDep-url] [![Known Vulnerabilities][snyk-image]][snyk-url] [![Twitter URL][twitter-image]][twitter-url]
 
 Serverless-Image-Resizer is an image processing service that runs on AWS Lambda and S3.
 
